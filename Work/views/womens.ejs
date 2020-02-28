@@ -1,0 +1,31 @@
+<%- include('partials/header.ejs'); %> 
+<%- include('partials/navbar.ejs'); %> 
+
+
+<div class = container>
+<h1> <%= categoryName %>  </h2>
+<p> <%= categoryDescription %> </p>
+
+<h2> SubCategories </h1>
+
+<% subCategories.forEach(element => { %>
+    <div class="card mb-5" style="width: 65rem;">
+        <img class="card-img-top" src="/images/<%= element.image %>" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title"><%= element.name %> </h5>
+          <p class="card-text"><%= element.page_description %> </p>
+          <% if (element.name === 'Clothing') { %>
+            <a href="/subWomensClothing" class="btn btn-primary">View products</a>
+          <% } else if (element.name === 'Acessories'){ %>
+            <a href="/subWomensAcessories" class="btn btn-primary">View products</a>
+          <% } else if (element.name === 'Jewelry') {%> 
+            <a href="/subWomensJewelry" class="btn btn-primary">View products</a>
+          <% } %> 
+        </div>
+      </div>
+<% }) %>
+
+
+
+
+<%- include('partials/footer.ejs'); %> 

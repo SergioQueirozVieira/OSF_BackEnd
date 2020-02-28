@@ -1,0 +1,25 @@
+<%- include('partials/header.ejs'); %> 
+<%- include('partials/navbar.ejs'); %> 
+
+
+<div class = container>
+
+
+<h2> Women's Clothing </h1>
+  <div class="row">
+<% products.forEach(element => { %>
+    <div class="card mb-5 mr-5 col-sm-3" style="width: 18rem;" >
+        <h5 class="card-title text-center"><%= element.name %> </h5>
+        <img class="card-img-top" src="/images/<%= element.image_groups[0].images[0].link %>" alt="Card image cap">
+        <div class="card-body text-center">
+          <p class="card-text"><%= element.page_description %> </p>
+          <h6>Price: <%= element.price %> </h6>
+          <a href="/products:<%= element.name %>" class="btn btn-primary">More Info</a>
+        </div>
+      </div>
+<% }) %>
+
+</div>
+
+
+<%- include('partials/footer.ejs'); %> 
